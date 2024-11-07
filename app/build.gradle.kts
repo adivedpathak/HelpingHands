@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("com.google.dagger.hilt.android") // Dagger Hilt plugin
+    id ("com.google.devtools.ksp") // KSP plugin
 }
 
 android {
@@ -66,4 +68,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    // Dagger Hilt and KSP
+    implementation ("com.google.dagger:hilt-android:2.51.1")
+    ksp(libs.hilt.compiler)
+
+    // Firebase Authentication
+    implementation( "com.google.firebase:firebase-auth-ktx:23.1.0") // or latest version
+
+    // AndroidX Hilt integration if needed (for ViewModel)
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 }
